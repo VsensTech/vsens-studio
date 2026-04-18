@@ -26,12 +26,14 @@
 ### 数据输出格式
 数据按“记录时间”生成的文件夹归档，包含 `.csv` 数据表和 `.avi` 视频。
 
-**CSV 数据格式：**
-`CHxx: Raw=aaaaa (Δ bbb) -> P=c.cc kPa`
+**数据格式：**
+单通道数据：`CHxx: aaaaa -> P=c.cc kPa, F=d.dd mN`
+末尾追加总计：`合力 (Total Force): e.ee mN`
 *   `CHxx`: 通道编号 (0-23)
-*   `Raw`: 原始电容值
-*   `Δ`: 变化量
+*   `aaaaa`: 原始电容值 (Raw)
 *   `P`: 压强值 (kPa)
+*   `F`: 单点受力 (mN)
+*   `合力 (Total Force)`: 传感器整体受力之和 (mN)
 
 ---
 
@@ -56,9 +58,11 @@ This repository contains the host software and drivers for Vsens Technology's ca
 ### Data Output
 Data is saved in timestamped folders containing `.csv` logs and `.avi` videos.
 
-**CSV Data Format:**
-`CHxx: Raw=aaaaa (Δ bbb) -> P=c.cc kPa`
+**Data Format:**
+Single Channel: `CHxx: aaaaa -> P=c.cc kPa, F=d.dd mN`
+Appended at the end: `合力 (Total Force): e.ee mN`
 *   `CHxx`: Channel Index (0-23)
-*   `Raw`: Raw Capacitance Value
-*   `Δ`: Delta Value (Change)
+*   `aaaaa`: Raw Capacitance Value
 *   `P`: Pressure (kPa)
+*   `F`: Single-point Force (mN)
+*   `Total Force`: Sum of forces across all active channels (mN)
